@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+  <defs>
+    <style>
+      .curve { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .curve1 { stroke: #20b2aa; }
+      .curve2 { stroke: #5a8a94; }
+      .text-title { font-family: Arial, sans-serif; font-weight: bold; fill: #20b2aa; }
+      .text-sub { font-family: Arial, sans-serif; fill: #5a8a94; font-size: 12px; }
+      .circle { fill: #e8f0f5; stroke: #20b2aa; stroke-width: 1; }
+    </style>
+  </defs>
+  
+  <!-- Main flowing curves -->
+  <path class="curve curve1" d="M 20 50 Q 35 30 50 50"/>
+  <path class="curve curve2" d="M 30 60 Q 50 40 70 60"/>
+  <path class="curve curve1" d="M 40 70 Q 60 50 80 70"/>
+  
+  <!-- Text -->
+  <text class="text-title" x="95" y="35" font-size="16">DUAL</text>
+  <text class="text-sub" x="95" y="55" font-size="14">STUDIES</text>
+  
+  <!-- Arabic text -->
+  <text class="text-sub" x="95" y="75" font-size="10" text-anchor="start">الدراسات الثنائية</text>
+</svg>

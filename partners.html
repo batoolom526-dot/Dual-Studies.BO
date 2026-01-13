@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Partners — Dual Studies College</title>
+  <link rel="stylesheet" href="partners.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <div class="logo-section">
+        <img src="logo.svg" class="logo" alt="Dual Studies logo">
+        <div class="logo-text">
+          <div class="org-name">Al-Quds University</div>
+          <div class="title">Dual Studies College — Internationalization</div>
+        </div>
+      </div>
+      <nav class="header-right">
+        <ul class="site-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="partners.html" class="active">Partners</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="partners-page">
+    <section class="partners-hero">
+      <div class="partners-hero-inner">
+        <h1>Our International Partners</h1>
+        <p>Explore the academic and industry partners who support Dual Studies — click a partner to learn more and visit their website.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:ds@ds.alquds.edu">Contact Partnership Office</a>
+          <a class="btn btn-secondary" href="programs.html">View Programs</a>
+        </div>
+        <div class="breadcrumb" aria-hidden="true">Home › Partners</div>
+      </div>
+    </section>
+
+    <section class="partners-controls">
+      <input id="partnersSearch" class="partner-search" type="search" placeholder="Search partners, tags, or location">
+      <select id="partnersRegion" class="filter-select" title="Filter partners by region">
+        <option value="all">All regions</option>
+        <option value="Europe">Europe</option>
+        <option value="MENA">MENA</option>
+      </select>
+      <select id="partnersType" class="filter-select" title="Filter partners by type">
+        <option value="all">All types</option>
+        <option value="Academic">Academic</option>
+        <option value="Industry">Industry</option>
+        <option value="Development">Development</option>
+      </select>
+    </section>
+
+    <section class="partners-grid-wrap">
+      <div class="partners-grid" id="partnersGrid"></div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="partner-modal" id="partnerModal">
+    <div class="partner-modal-content">
+      <button class="partner-modal-close" id="partnerModalClose">&times;</button>
+      <div id="partnerModalBody"></div>
+    </div>
+  </div>
+  <script src="partners.js"></script>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="org-name">Al-Quds University</div>
+        <p class="muted">Dual Studies College — Internationalization</p>
+        <p class="muted small">&copy; 2024 Al-Quds University. All rights reserved.</p>
+      </div>
+      <div class="footer-col">
+        <strong>Quick Links</strong>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="partners.html">Partners</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <strong>Contact</strong>
+        <p>Email: <a href="mailto:ds@ds.alquds.edu">ds@ds.alquds.edu</a></p>
+        <p>Facebook: <a href="https://www.facebook.com/dualstudies.aqu/" target="_blank" rel="noopener">facebook.com/dualstudies.aqu</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/dualstudies_aqu/" target="_blank" rel="noopener">instagram.com/dualstudies_aqu</a></p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/dualstudies.aqu/" target="_blank" rel="noopener" aria-label="Facebook">
+            <!-- facebook svg -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.45h-1.25c-1.23 0-1.61.77-1.61 1.56v1.87h2.74l-.44 2.9h-2.3V22c4.78-.75 8.44-4.91 8.44-9.93z" fill="#1877F2"/></svg>
+          </a>
+          <a href="https://www.instagram.com/dualstudies_aqu/" target="_blank" rel="noopener" aria-label="Instagram">
+            <!-- instagram svg -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.1A4.9 4.9 0 1016.9 13 4.9 4.9 0 0012 8.1zM18.6 6.2a1.1 1.1 0 11-1.1-1.1 1.1 1.1 0 011.1 1.1z" fill="#E1306C"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col newsletter">
+        <strong>Newsletter</strong>
+        <p class="muted">Sign up for updates about partnerships and programs.</p>
+        <form onsubmit="alert('Thanks — subscription simulated.'); return false;">
+          <input type="email" placeholder="Your email" aria-label="Your email" required>
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <small>&copy; 2024 Al-Quds University - Dual Studies College</small>
+      <a class="top-link" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a>
+    </div>
+  </footer>
+
+  <button id="backToTop" title="Back to top" aria-label="Back to top">↑</button>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Programs - Dual Studies College</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="logo.svg" alt="Dual Studies Logo" class="logo">
+                <div class="header-text">
+                    <div class="org-name">Al-Quds University</div>
+                    <div class="title" id="headerTitle">Dual Studies College — Internationalization</div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="de">DE</button>
+                    <button class="lang-btn" data-lang="ar">العربية</button>
+                </div>
+                <a href="index.html" class="btn btn-primary" id="backBtn">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <div class="programs-container">
+            <h1 id="programsTitle">Available Programs</h1>
+            <p id="programsDesc">Explore all currently available training and study programs offered through our partnerships.</p>
+            
+            <div class="programs-grid" id="programsGrid">
+                <!-- Programs will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- No Programs Message -->
+    <div id="noProgramsMessage" class="no-programs-message">
+        <div class="no-programs-content">
+            <div class="no-programs-icon">📭</div>
+            <h2 id="noProgramsTitle">No Programs Available</h2>
+            <p id="noProgramsText">There are currently no active programs available. Please check back later or contact the Internationalization Office for more information.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p id="footerText">&copy; 2024 Al-Quds University - Dual Studies College. All rights reserved.</p>
+            <p><a href="index.html" id="homeLink">Home</a> | <a href="#" id="contactLink">Contact</a></p>
+            <div class="footer-contact">
+                <strong>Contact</strong>: Email: <a href="mailto:ds@ds.alquds.edu">Dual Studies &lt;ds@ds.alquds.edu&gt;</a>
+                &nbsp;|&nbsp; Facebook: <a href="https://www.facebook.com/dualstudies.aqu/" target="_blank" rel="noopener">facebook.com/dualstudies.aqu</a>
+                &nbsp;|&nbsp; Instagram: <a href="https://www.instagram.com/dualstudies_aqu/" target="_blank" rel="noopener">instagram.com/dualstudies_aqu</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Modal -->
+    <div class="application-modal" id="applicationModal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h2 id="applicationFormTitle">Application Form</h2>
+                <button class="modal-close" id="closeApplicationModal">&times;</button>
+            </div>
+            
+            <form id="applicationForm">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label id="fullNameLabel">Full Name</label>
+                            <input type="text" name="fullName" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label id="emailLabel">Email Address</label>
+                            <input type="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label id="phoneLabel">Phone Number</label>
+                            <input type="tel" name="phone" placeholder="+970-..." required>
+                        </div>
+                        <div class="form-group">
+                            <label id="universityLabel">Current University</label>
+                            <input type="text" name="currentUniversity" placeholder="Your University Name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label id="majorLabel">Major/Field of Study</label>
+                            <input type="text" name="major" placeholder="Your Major" required>
+                        </div>
+                        <div class="form-group">
+                            <label id="gpaLabel">Current GPA</label>
+                            <input type="number" name="gpa" placeholder="e.g., 3.5" step="0.01" min="0" max="4" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Upload -->
+                <div class="form-section">
+                    <h3>Required Documents</h3>
+                    <p class="form-hint">Upload all required documents in PDF, DOC, DOCX, JPG, or PNG format. Maximum file size: 5MB per document.</p>
+                    
+                    <!-- English Certificate -->
+                    <div class="document-upload-group">
+                        <label class="document-label" id="englishCertLabel">
+                            <span id="englishCertText">English Language Certificate (TOEFL/IELTS)</span>
+                            <span class="required-badge">Required</span>
+                        </label>
+                        <div class="file-upload-box" id="englishCertUpload">
+                            <input type="file" name="englishCertificate" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required hidden>
+                            <div class="upload-icon">📄</div>
+                            <div class="upload-text" id="englishCertDragText">Drag and drop or click to select</div>
+                            <div class="file-name" id="englishCertFileName"></div>
+                        </div>
+                    </div>
+
+                    <!-- German Certificate -->
+                    <div class="document-upload-group">
+                        <label class="document-label" id="germanCertLabel">
+                            <span id="germanCertText">German Language Certificate</span>
+                            <span class="required-badge">Required</span>
+                        </label>
+                        <div class="file-upload-box" id="germanCertUpload">
+                            <input type="file" name="germanCertificate" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required hidden>
+                            <div class="upload-icon">📄</div>
+                            <div class="upload-text" id="germanCertDragText">Drag and drop or click to select</div>
+                            <div class="file-name" id="germanCertFileName"></div>
+                        </div>
+                    </div>
+
+                    <!-- Academic Transcript -->
+                    <div class="document-upload-group">
+                        <label class="document-label" id="transcriptLabel">
+                            <span id="transcriptText">Academic Transcript</span>
+                            <span class="required-badge">Required</span>
+                        </label>
+                        <div class="file-upload-box" id="transcriptUpload">
+                            <input type="file" name="academicTranscript" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required hidden>
+                            <div class="upload-icon">📄</div>
+                            <div class="upload-text" id="transcriptDragText">Drag and drop or click to select</div>
+                            <div class="file-name" id="transcriptFileName"></div>
+                        </div>
+                    </div>
+
+                    <!-- CV -->
+                    <div class="document-upload-group">
+                        <label class="document-label" id="cvLabel">
+                            <span id="cvText">Curriculum Vitae (CV)</span>
+                            <span class="required-badge">Required</span>
+                        </label>
+                        <div class="file-upload-box" id="cvUpload">
+                            <input type="file" name="cvDocument" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required hidden>
+                            <div class="upload-icon">📄</div>
+                            <div class="upload-text" id="cvDragText">Drag and drop or click to select</div>
+                            <div class="file-name" id="cvFileName"></div>
+                        </div>
+                    </div>
+
+                    <!-- Motivation Letter -->
+                    <div class="document-upload-group">
+                        <label class="document-label" id="motivationLabel">
+                            <span id="motivationText">Motivation Letter</span>
+                            <span class="required-badge">Required</span>
+                        </label>
+                        <div class="file-upload-box" id="motivationUpload">
+                            <input type="file" name="motivationLetter" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required hidden>
+                            <div class="upload-icon">📄</div>
+                            <div class="upload-text" id="motivationDragText">Drag and drop or click to select</div>
+                            <div class="file-name" id="motivationFileName"></div>
+                        </div>
+                    </div>
+
+                    <!-- Passport Copy -->
+                    <div class="document-upload-group">
+                        <label class="document-label" id="passportLabel">
+                            <span id="passportText">Passport Copy</span>
+                            <span class="required-badge">Required</span>
+                        </label>
+                        <div class="file-upload-box" id="passportUpload">
+                            <input type="file" name="passerportCopy" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required hidden>
+                            <div class="upload-icon">📄</div>
+                            <div class="upload-text" id="passportDragText">Drag and drop or click to select</div>
+                            <div class="file-name" id="passportFileName"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelApplicationBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="programs.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual Studies College
+         Internationalization</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="logo.svg" alt="Dual Studies Logo" class="logo">
+                <div class="header-text">
+                    <div class="org-name">Al-Quds University</div>
+                    <div class="title" id="headerTitle">Dual Studies College Internationalization</div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="de">DE</button>
+                    <button class="lang-btn" data-lang="ar">العربية</button>
+                </div>
+                <button class="btn btn-primary" id="shareBtn">Share Your Experience</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 id="heroTitle">Bridging education and industry across borders</h1>
+            <p id="heroDesc">We connect students with international academic and industry partners through dual-study programs, exchanges, internships, and joint research — unlocking real-world skills and global mobility.</p>
+            
+            <div class="action-buttons">
+                <a class="btn btn-primary" id="exploreBtn" href="partners.html">
+                    <span class="icon">📍</span> Explore Partners
+                </a>
+                <button class="btn btn-secondary" id="shareBtn2">
+                    <span class="icon">✍️</span> Share Your Experience
+                </button>
+                <button class="btn btn-tertiary" id="joinBtn">
+                    <span class="icon">👥</span> Join a Program
+                </button>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <span class="icon">👥</span>
+                    <span id="studentsText">Students Abroad: 200+</span>
+                </div>
+                <div class="stat">
+                    <span class="icon">🏢</span>
+                    <span id="partnersText">International & Industry Partners: 1</span>
+                </div>
+                <div class="stat">
+                    <span class="icon">🌍</span>
+                    <span id="countriesText">Countries Connected: 1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-map">
+            <div class="map-header">📍 Partners Map</div>
+            <div id="leaflet-map" class="leaflet-map-container"></div>
+            <div class="map-legend">
+                <div class="legend-item">
+                    <span class="legend-color legend-home"></span>
+                    <span>Home (Palestine)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color legend-partner"></span>
+                    <span>Partner Cities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="section-header">
+            <h2 id="partnersTitle">🏢 Partners</h2>
+            <div class="filters">
+                <button class="filter-btn active">Filter</button>
+                <select class="filter-select" id="programFilter" title="Filter by program">
+                    <option value="">All</option>
+                    <option value="Digital Business">Digital Business</option>
+                    <option value="IT">IT</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                </select>
+                <select class="filter-select" id="typeFilter" title="Filter by type">
+                    <option value="">All</option>
+                    <option value="Academic">Academic</option>
+                    <option value="Industry">Industry</option>
+                </select>
+                <select class="filter-select" id="regionFilter" title="Filter by region">
+                    <option value="">All</option>
+                    <option value="Europe">Europe</option>
+                    <option value="MENA">MENA</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="partners-grid" id="partnersGrid">
+            <!-- Partners will be populated here -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2 id="aboutTitle">About Dual Studies</h2>
+            <div class="about-text" id="aboutText">
+                Since 2015, Dual Study programs based on the German model have been offered at Al-Quds University. Supported by the project "More Job Opportunities for Palestinian Youth II" (GIZ, on behalf of BMZ), these B.A. programs in economics, engineering, and IT combine theory and practice, producing graduates who are well-prepared for the job market and valuable to local companies.
+            </div>
+        </div>
+    </section>
+
+    <!-- International Network Section -->
+    <section class="network-section">
+        <div class="network-content">
+            <h2 id="networkTitle">International Network</h2>
+            <div class="network-text" id="networkText">
+                International experience is key for both students and the Palestinian economy. To strengthen knowledge transfer, a network is being built to support three-month internships in Germany. Join this network and benefit from motivated, multilingual interns.
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="benefits-container">
+            <h2 id="benefitsTitle">Benefits for Companies</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3 id="benefit1Title">Strong Partnerships</h3>
+                    <p id="benefit1Text">Connect with Palestinian universities and training providers.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3 id="benefit2Title">Market Insights</h3>
+                    <p id="benefit2Text">Gain access to the MENA region.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3 id="benefit3Title">Innovation</h3>
+                    <p id="benefit3Text">Leverage diverse technical and educational perspectives.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3 id="benefit4Title">Talent Pipeline</h3>
+                    <p id="benefit4Text">Assess interns as potential future hires.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3 id="benefit5Title">Language Skills</h3>
+                    <p id="benefit5Text">Benefit from interns fluent in Arabic, English, and other languages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Students' Experiences Section -->
+    <section class="experiences-section">
+        <div class="experiences-header">
+            <h2 id="experiencesTitle">📋 Students' Experiences</h2>
+            <div class="experiences-actions">
+                <button class="btn btn-primary" id="submitBtn">
+                    <span class="icon">+</span> Submit Experience
+                </button>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="demoToggle">
+                    <span id="demoText">Office Dashboard (Demo)</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="experiences-grid" id="experiencesGrid">
+            <!-- Experiences will be populated here -->
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="experienceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Submit Experience</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <form id="experienceForm">
+                <div class="form-group">
+                    <label id="nameLabel">Name</label>
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label id="programLabel">Your Program</label>
+                    <input type="text" placeholder="Digital Business" required>
+                </div>
+                <div class="form-group">
+                    <label id="institutionLabel">Host Institution</label>
+                    <input type="text" placeholder="Partner Institution" required>
+                </div>
+                <div class="form-group">
+                    <label id="storyLabel">Your Story</label>
+                    <textarea placeholder="What did you learn? What impact did the dual model have?" rows="5" required></textarea>
+                </div>
+                <div class="form-footer">
+                    <p id="reviewText">Submissions are reviewed by the Internationalization Office before publication.</p>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p id="footerText">&copy; 2024 Al-Quds University - Dual Studies College. All rights reserved.</p>
+            <div class="footer-contact">
+                <strong>Contact</strong>: Email: <a href="mailto:ds@ds.alquds.edu">Dual Studies &lt;ds@ds.alquds.edu&gt;</a>
+                &nbsp;|&nbsp; Facebook: <a href="https://www.facebook.com/dualstudies.aqu/" target="_blank" rel="noopener">facebook.com/dualstudies.aqu</a>
+                &nbsp;|&nbsp; Instagram: <a href="https://www.instagram.com/dualstudies_aqu/" target="_blank" rel="noopener">instagram.com/dualstudies_aqu</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
